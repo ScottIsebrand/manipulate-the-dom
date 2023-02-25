@@ -61,25 +61,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // main.lastElementChild.appendChild(?<div>?)
 
   const mainDiv = document.querySelector('.main');
-  console.dir(mainDiv);
 
   const domAdventures = document.querySelector('#dom-adventures');
-  console.dir(domAdventures);
 
   // create a new <div> with class of .blog-post
   const newDivForBlogPost = document.createElement('div');
   newDivForBlogPost.classList.add('blog-post', 'purple');
-  console.log(newDivForBlogPost);
 
   // create a new <h1> with text
   const newH1ForBlogPost = document.createElement('h1');
   newH1ForBlogPost.textContent = 'Glasgow';
-  console.log(newH1ForBlogPost);
 
   // a new <p> with some text
   const newPForBlogPost = document.createElement('p');
-  newPForBlogPost.textContent = 'I DROVE MY CAR TO A HAGGIS FESTIVAL!';
-  console.log(newPForBlogPost);
+  newPForBlogPost.textContent =
+    'I TOOK TILDA SWINTON IN MY CAR TO A HAGGIS FESTIVAL!';
 
   // find first blog-post child of main
   const firstBlogPostChild = document.querySelector('.blog-post');
@@ -93,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // Part 8 add a click event handler; it should use the function randomQuote whenever #quote-title is clicked.
 
   const quoteTitle = document.querySelector('#quote-title');
-  console.log(quoteTitle);
+  // console.log(quoteTitle);
 
   quoteTitle.addEventListener('click', function (event) {
     // Random quote of the day generator
@@ -106,4 +102,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
   });
 
   // Part 9
+  const blogPosts = document.querySelectorAll('.blog-post');
+  console.log(blogPosts);
+
+  blogPosts.forEach((blogPost) => {
+    // console.log(blogPost);
+    blogPost.addEventListener('mouseenter', function (event) {
+      // event.currentTarget.classList.toggle('purple');
+      event.target.classList.toggle('purple');
+      event.target.classList.toggle('red');
+      // }
+    });
+    blogPost.addEventListener('mouseleave', function (event) {
+      // if (!event.currentTarget.classList.toggle('purple')) {
+      event.target.classList.toggle('red');
+      event.target.classList.toggle('purple');
+      // }
+    });
+  });
 });
