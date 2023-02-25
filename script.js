@@ -56,7 +56,41 @@ document.addEventListener('DOMContentLoaded', function (event) {
   newLiInRacesList.textContent = 'Glasgow';
   pastRacesList.append(newLiInRacesList);
 
-  // Part 7 Create a new .blog-post corresponding to the new city added in Part 6. Must create a new <div> with class of .blog-post, a new <h2> with text, and a new <p>with some text. Think about what order you want to create the elements, and what order you want to append them in.
+  // Part 7 Create a new .blog-post (at top?) corresponding to the new city added in Part 6. Must create a new <div> with class of .blog-post, a new <h2> (they mean <h1>?) with text, and a new <p> with some text. Think about what order you want to create the elements, and what order you want to append them in.
+  // Use     <div class="main"> , ie,  document.querySelector(".main")
+  // main.lastElementChild.appendChild(?<div>?)
+
+  const mainDiv = document.querySelector('.main');
+  console.dir(mainDiv);
+
+  const domAdventures = document.querySelector('#dom-adventures');
+  console.dir(domAdventures);
+
+  // create a new <div> with class of .blog-post
+  const newDivForBlogPost = document.createElement('div');
+  newDivForBlogPost.classList.add('blog-post', 'purple');
+  console.log(newDivForBlogPost);
+
+  // create a new <h1> with text
+  const newH1ForBlogPost = document.createElement('h1');
+  newH1ForBlogPost.textContent = 'Glasgow';
+  console.log(newH1ForBlogPost);
+
+  // a new <p> with some text
+  const newPForBlogPost = document.createElement('p');
+  newPForBlogPost.textContent = 'I DROVE MY CAR TO A HAGGIS FESTIVAL!';
+  console.log(newPForBlogPost);
+
+  // find first blog-post child of main
+  const firstBlogPostChild = document.querySelector('.blog-post');
+
+  // insert the new <div> before the current first blog-post
+  mainDiv.insertBefore(newDivForBlogPost, firstBlogPostChild);
+
+  // append h1 and p (which are siblings) to div
+  newDivForBlogPost.append(newH1ForBlogPost, newPForBlogPost);
+
+  // append p to
 
   // Part 8
 
