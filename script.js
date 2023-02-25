@@ -90,9 +90,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // append h1 and p (which are siblings) to div
   newDivForBlogPost.append(newH1ForBlogPost, newPForBlogPost);
 
-  // append p to
+  // Part 8 add a click event handler; it should use the function randomQuote whenever #quote-title is clicked.
 
-  // Part 8
+  const quoteTitle = document.querySelector('#quote-title');
+  console.log(quoteTitle);
+
+  quoteTitle.addEventListener('click', function (event) {
+    // Random quote of the day generator
+    const randomQuote = function () {
+      document.querySelector('#quote-of-the-day').textContent = `"${
+        quotes[Math.floor(Math.random() * quotes.length)]
+      }"`;
+    };
+    randomQuote();
+  });
 
   // Part 9
 });
